@@ -127,10 +127,57 @@ public class Slice_o_Heaven {
              System.out.println("Order ID: " + orderID);
              System.out.println("Order Total: " + orderTotal);
  
-         }
- 
+             }
+
+        public void processCardPayment(String cardNumber,String expiryDate,int cvv){
+            int cardLength = cardNumber.length();
+            if (cardLength == 14){
+                System.out.println("Card accepted");
+            }
+            else{
+                System.out.println("Invalid card");
+            
+        }
+        int firstCardDigit = Integer.parseInt(cardNumber.substring(0,1));
+
+        String blacklistedNumber = "12345678901234";
+        if (cardNumber.equals(blacklistedNumber)){
+            System.out.println("Card is blacklisted,please use another card");
+        }
+        int lastFourDigits = Integer.parseInt(cardNumber.substring(cardLength - 4));
+
+        StringBuilder sb = new StringBuilder(cardNumber);
+        for (int i = 1; i < cardLength - 4; i++) {
+            sb.setCharAt(i, '*');
+        }
+        String cardNumberToDisplay = sb.toString();
+
+        System.out.println("First card digit: " + firstCardDigit);
+        System.out.println("Last four digits: " + lastFourDigits);
+        System.out.println("Card number to display: " + cardNumberToDisplay);
+        
+            }
+        public void specialOfTheDay(String pizzaOfTheDay,String sideOfTheDay,String specialPrice){
+        StringBuilder specialInfo = new StringBuilder();
+        specialInfo.append("Special of the day: " ).append(pizzaOfTheDay);
+        specialInfo.append("\nSide of the day: " ).append(sideOfTheDay);
+        specialInfo.append("\nSpecial price: " ).append(specialPrice);
+        System.out.println(specialInfo.toString());
+        }
+        
+     
+         
+         
          public static void main(String[]args) {
              Slice_o_Heaven pizzeria = new Slice_o_Heaven("12345", "Some Ingredients", 50.00);
              pizzeria.takeOrder("12345", 50.00);
+        
+             pizzeria.processCardPayment("12345678901234", "2/28", 123);
+
+        
+             pizzeria.specialOfTheDay("Margherita Pizza", "Garlic Bread", "$12.99");
+      
          }
+            
         }
+    
