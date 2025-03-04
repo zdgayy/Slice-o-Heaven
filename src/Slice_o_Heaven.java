@@ -163,10 +163,10 @@ public class Slice_o_Heaven {
 
             if (years < 18 && today.getDayOfYear() == birthdate.getDayOfYear()) {
                 System.out.println("Congratulations! You pay only half the price for your order");
-                return true; // 满足折扣条件
+                return true; 
             } else {
                 System.out.println("Too bad! You do not meet the conditions to get our 50% discount");
-                return false; // 不满足折扣条件
+                return false; 
             }
         } catch (DateTimeParseException e) {
             System.out.println("Invalid date format. Please enter the date in yyyy-MM-dd format.");
@@ -178,7 +178,7 @@ public class Slice_o_Heaven {
         try {
             System.out.println("Enter your card number:");
             long cardNumber = scanner.nextLong();
-            scanner.nextLine(); // 清除缓冲区
+            scanner.nextLine();
             System.out.println("Enter expiry date (MM/YY):");
             String expiryDate = scanner.nextLine();
 
